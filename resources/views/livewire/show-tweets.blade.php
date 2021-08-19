@@ -31,9 +31,11 @@
     <p class="text-green-400 py-2 border-b">
         {{$tweet->user->name}} - {{$tweet->content}} -
         @if ($tweet->likes->count())
-        <a href="">Descurtir</a>
+        <a href="#" wire:click.prevent="unlike({{$tweet->id}})"
+            class="font-bold py-1 px-2 m-2 text-red-400  border border-solid border-red-500 rounded">👎 Descurtir</a>
         @else
-        <a href="" class="font-boldsssssssssssss">Curtir</a>
+        <a href="#" wire:click.prevent="like({{$tweet->id}})"
+            class="font-bold py-1 px-2 m-2 text-green-400  border border-solid border-green-500 rounded">👍 Curtir </a>
         @endif
     </p>
     @endforeach
